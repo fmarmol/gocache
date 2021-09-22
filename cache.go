@@ -27,12 +27,12 @@ func newObject(c *Cache, d time.Duration, key interface{}) *Object {
 	return &o
 }
 
-func (c *Cache) Store(key, value string) {
+func (c *Cache) Store(key, value interface{}) {
 	c.Map.Store(key, value)
 	newObject(c, c.d, key)
 }
 
-func (c *Cache) Load(key string) (interface{}, bool) {
+func (c *Cache) Load(key interface{}) (interface{}, bool) {
 	return c.Map.Load(key)
 }
 
